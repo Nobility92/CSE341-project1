@@ -4,10 +4,9 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const router = express.Router();
 const port = 3000;
+const lesson1controller = require("./controllers/lesson1");
  
-app.get('/', (req, res) => {
-  res.send("Henry Hello");
-});
+app.get('/hen', lesson1controller.henryroute);
 app.use(bodyParser.json());
 app.use('/', router);
 
