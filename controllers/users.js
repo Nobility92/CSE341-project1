@@ -12,9 +12,15 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid User id to find a contact.');
+  }
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDatabase().db().collection('User').find({_id: userId});
     result.toArray().then((User) => {
+      // if (err) {
+      //   res.status(400).json({ message: err });
+      // }
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(User[0]);
   });
@@ -37,6 +43,9 @@ const createUser = async (req, res) =>{
 };
 
 const updateUser = async (req, res) =>{
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid User id to update a User.');
+  }
   const userId = new ObjectId(req.params.id);
     const user = {
       firstName: req.body.firstName,
@@ -52,7 +61,11 @@ const updateUser = async (req, res) =>{
       res.status(500).json(response.error || 'Some error occured updating a user');
     }
 };
+
 const deleteUser = async (req, res) =>{
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid user id to delete a User.');
+  }
   const userId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('User').deleteOne({_id: userId});
     if (response.deletedcount > 0){

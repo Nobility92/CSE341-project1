@@ -2,7 +2,7 @@
 GET http://localhost:3000/user
 
 ### Contact by id
-GET http://localhost:3000/667033d5749183f85ebb7fef
+GET http://localhost:3000/66703027749183f85ebb7fee
 
 ###creating a user
 POST http://localhost:3000/user HTTP/1.1
@@ -28,5 +28,5 @@ Content-Type: application/json
     "birthday": "7/03/2021"
   }
 
-###deletinging a user
-DELETE http://localhost:3000/667faef3d44a2f8414ab3fd5
+###deleting a user
+DELETE http://localhost:3000/66869f1544f92d9519cb259c
