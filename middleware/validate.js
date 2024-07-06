@@ -2,12 +2,15 @@ const validator = require('../helpers/validate');
 
 const saveUser = (req, res, next) => {
   const validationRule = {
-    firstName: 'required|string',
-    lastName: 'required|string',
-    email: 'required|email',
-    favoriteColor: 'required|string',
-    birthday: 'string'
+        staff_id: 'required|integer',  
+        firstName: 'required|string',
+        lastName: 'required|string',
+        email: 'required|email',
+        password: 'required|string',
+        salary: 'required|integer',
+        country: 'required|string'
   };
+
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
       res.status(412).send({

@@ -16,7 +16,9 @@ app.use((req, res, next) =>{
 });
 
 app.use('/', require('./routes'));
+app.use('/', require('./routes/staff'));
 app.use('/', require('./routes/users'));
+
 app.use('/', require('./routes/temples'));
 app.use('/', require('./routes/indexswag'));
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
