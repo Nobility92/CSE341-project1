@@ -43,7 +43,7 @@ app.use('/', require('./routes/indexswag'));
 passport.use(new githubstrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: process.env.CALLBACK_URL
+  callbackURL: process.env.CALLBACK_URL,
   
 },
   function(accessToken, refreshToken, profile, done){
