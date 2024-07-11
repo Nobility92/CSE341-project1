@@ -35,5 +35,5 @@ Content-Type: application/json
 ###deleting a user
 DELETE http://localhost:3000/668b94591a9343b3e3fbe1cb
 
-###login
-GET http://localhost:3000/logout HTTP/1.1
+### login
+GET http://localhost:3000/login HTTP/1.1
